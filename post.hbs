@@ -1,0 +1,28 @@
+{{!< default}}
+
+<div class="content-area">
+    <main class="site-main">
+        {{#post}}
+            <article class="{{post_class}} single">
+                <header class="post-header container large">
+                    <h1 class="post-title">{{title}}</h1>
+                </header>
+                {{#if custom_excerpt}}
+                    <div class="post-excerpt container medium">{{custom_excerpt}}</div>
+                {{/if}}
+                {{#if feature_image}}
+                    <div class="post-media container large">
+                        <img class="post-image" srcset="{{> srcset}}"
+                            sizes="(min-width: 1170px) 1140px, (min-width: 780px) 750px, calc(100vw - 30px)"
+                            src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+                            alt="{{title}}">
+                    </div>
+                {{/if}}
+                <div class="post-content kg-canvas u-text-format">
+                    {{content}}
+                </div>
+            </article>
+        {{/post}}
+        {{> related}}
+    </main>
+</div>

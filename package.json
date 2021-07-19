@@ -1,7 +1,7 @@
 {
     "name": "byronrode.co.za",
     "description": "2021 version",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "engines": {
         "ghost": ">=4.0.0",
         "ghost-api": "v4"

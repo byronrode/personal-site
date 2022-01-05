@@ -1,5 +1,6 @@
 name: Deploy Theme
 on:
+  pull_request:
   push:
     branches:
       - main
@@ -7,7 +8,8 @@ jobs:
   deploy:
     runs-on: ubuntu-18.04
     steps:
-      - uses: actions/checkout@main
+      - name: Checkout Files
+        uses: actions/checkout@main
       - name: Deploy Ghost Theme
         uses: TryGhost/action-deploy-theme@v1.4.1
         with:

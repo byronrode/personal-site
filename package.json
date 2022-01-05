@@ -1,7 +1,7 @@
 {
-    "name": "byronrode.co.za",
-    "description": "2021 version",
-    "version": "1.0.3",
+    "name": "byronrode-co-za-ghost-theme",
+    "description": "2022 version",
+    "version": "1.0.4",
     "engines": {
         "ghost": ">=4.0.0",
         "ghost-api": "v4"

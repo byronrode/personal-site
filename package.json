@@ -3,8 +3,7 @@
     "description": "2022 version",
     "version": "1.0.4",
     "engines": {
-        "ghost": ">=4.0.0",
-        "ghost-api": "v4"
+        "ghost": ">=5.0.0"
     },
     "license": "MIT",
         "author": {

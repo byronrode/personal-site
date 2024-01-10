@@ -5,19 +5,22 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{meta_title}}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="{{asset "built/screen.css"}}">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Rubik:400,500,700&amp;subset=latin-ext">
-
+    <script src="https://kit.fontawesome.com/37f577d1a7.js" crossorigin="anonymous"></script>
     {{ghost_head}}
 </head>
 
-<body class="{{body_class}}">
-    <div class="site">
-        {{> header}}
-        <div class="site-content">
-            {{{body}}}
+<body class="{{body_class}} bg-br-red text-white font-inter font-light antialiased">
+    <div class="relative max-w-5xl mx-auto">
+        <div class="site flex flex-col min-h-screen lg:flex-row lg:items-center lg:p-16">
+            {{> header}}
+            <div class="site-content">
+                {{{body}}}
+            </div>
+            {{> footer}}
         </div>
-        {{> footer}}
     </div>
 
     <script
@@ -25,7 +28,6 @@
         integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
         crossorigin="anonymous">
     </script>
-    <script src="{{asset "built/main.min.js"}}"></script>
 
     {{{block "scripts"}}}
 

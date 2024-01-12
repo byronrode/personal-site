@@ -1,45 +1,32 @@
 <!DOCTYPE html>
-<html lang="{{@site.locale}}">
-
+<html lang="{{@site.locale}}" class="h-full antialiased light" style="color-scheme: light; --header-position: sticky; --content-offset: 116px; --header-height: 180px; --header-mb: -116px; --avatar-image-transform: translate3d(0rem, 0, 0) scale(1); --avatar-border-transform: translate3d(-0.2222222222222222rem, 0, 0) scale(1.7777777777777777); --avatar-border-opacity: 0; --header-top: 0px; --avatar-top: 0px;">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{{meta_title}}</title>
-
   <script src="https://kit.fontawesome.com/37f577d1a7.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="{{asset "built/screen.css"}}">
-
   {{ghost_head}}
 </head>
 
 <body class="{{body_class}} flex h-full bg-zinc-50 dark:bg-black antialiased">
-<div class="flex w-full">
-  <div class="fixed inset-0 flex justify-center sm:px-8">
-    <div class="flex w-full max-w-7xl lg:px-8">
-      <div
-        class="w-full bg-white ring-1 ring-zinc-100 dark:bg-zinc-900 dark:ring-zinc-300/20"></div>
+  <div class="flex w-full">
+    <div class="fixed inset-0 flex justify-center sm:px-8">
+      <div class="flex w-full max-w-7xl lg:px-8">
+        <div class="w-full bg-white ring-1 ring-zinc-100 dark:bg-zinc-900 dark:ring-zinc-300/20"></div>
+      </div>
+    </div>
+    <div class="relative flex w-full flex-col">
+      {{> header}}
+      <main class="flex-auto">
+        {{{body}}}
+      </main>
+      {{> footer}}
     </div>
   </div>
-  <div class="relative flex w-full flex-col">
-    {{> header}}
-    <main class="flex-auto">
-      <div class="sm:px-8 mt-16 sm:mt-32">
-        <div class="mx-auto w-full max-w-7xl lg:px-8">
-          <div class="relative px-4 sm:px-8 lg:px-12">
-            <div class="mx-auto max-w-2xl lg:max-w-5xl">
-              {{{body}}}
-            </div>
-          </div>
-        </div>
-      </div>
-    </main>
-    {{> footer}}
-  </div>
-</div>
 
-{{{block "scripts"}}}
+  {{{block "scripts"}}}
 
-{{ghost_foot}}
+  {{ghost_foot}}
 </body>
-
 </html>

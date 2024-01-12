@@ -1,3 +1,12 @@
+const allPlugins = {
+  typography: require("@tailwindcss/typography"),
+};
+
+const plugins = Object.keys(allPlugins)
+  .map((k) => {
+    return allPlugins[k];
+  });
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ["./*.hbs", "./**/*.hbs"],
@@ -37,5 +46,5 @@ module.exports = {
       variants: ['lg', 'hover', 'focus', 'lg:hover'],
     },
   ],
-  plugins: [],
+  plugins: plugins,
 }

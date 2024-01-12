@@ -1,0 +1,30 @@
+{{!< default}}
+
+{{#post}}
+<div class="mx-auto w-full max-w-7xl lg:px-8">
+            <article class="{{post_class}} single text-zinc-400 dark:text-zinc-500">
+                <header class="max-w-2xl">
+                    <h1 class="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl mb-6">{{title}}</h1>
+                </header>
+                {{#if custom_excerpt}}
+                    <div class="post-excerpt container medium">{{custom_excerpt}}</div>
+                {{/if}}
+                {{#if feature_image}}
+                    <div class="post-media container large">
+                        <img class="post-image" srcset="{{> srcset}}"
+                            sizes="(min-width: 1170px) 1140px, (min-width: 780px) 750px, calc(100vw - 30px)"
+                            src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+                            alt="{{title}}">
+                    </div>
+                {{/if}}
+                <div class="mt-8 prose dark:prose-invert text-zinc-600 dark:text-zinc-400">
+                    {{content}}
+                </div>
+            </article>
+
+
+</div>
+
+  {{/post}}
+
+{{> related}}

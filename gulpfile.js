@@ -14,6 +14,7 @@ var colorFunction = require('postcss-color-mod-function');
 var cssnano = require('cssnano');
 var easyimport = require('postcss-easy-import');
 var tailwind = require('tailwindcss');
+var tailwindNesting = require('tailwindcss/nesting');
 
 function serve(done) {
   livereload.listen();
@@ -33,6 +34,7 @@ function css(done) {
   var processors = [
     easyimport,
     colorFunction(),
+    tailwindNesting(),
     tailwind('./tailwind.config.js'),
     autoprefixer(),
     cssnano()

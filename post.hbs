@@ -7,10 +7,11 @@
         <div class="xl:relative">
           <div class="mx-auto max-w-2xl">
             {{>"components/utilities/back-button"}}
+
             {{#post}}
               <article class="{{post_class}}">
                 <header class="flex flex-col">
-                  <h1 class="mt-6 text-4xl font-bold tracking-tight text-zinc-800 sm:text-5xl dark:text-zinc-100">{{title}}</h1>
+                  <h1 class="mt-6 text-4xl font-bold text-zinc-800 sm:text-5xl dark:text-zinc-100">{{title}}</h1>
                   <time datetime="{{date format='YYYY-MM-DD'}}" class="order-first flex items-center text-base text-zinc-400 dark:text-zinc-500">
                     <span class="h-4 w-0.5 rounded-full bg-zinc-200 dark:bg-zinc-500"></span>
                     <span class="ml-3">{{date format="DD MMMM YYYY"}}</span>
@@ -20,9 +21,10 @@
             {{#if custom_excerpt}}
               <div class="post-excerpt container medium">{{custom_excerpt}}</div>
             {{/if}}
+
             {{#if feature_image}}
-              <div class="post-media container large">
-                <img class="post-image" srcset="{{> srcset}}"
+              <div class="my-8">
+                <img class="rounded-xl" srcset="{{> srcset}}"
                      sizes="(min-width: 1170px) 1140px, (min-width: 780px) 750px, calc(100vw - 30px)"
                      src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
                      alt="{{title}}">

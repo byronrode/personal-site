@@ -2,19 +2,19 @@ const {series, watch, src, dest, parallel} = require('gulp');
 const pump = require('pump');
 
 // gulp plugins and utils
-var livereload = require('gulp-livereload');
-var postcss = require('gulp-postcss');
-var zip = require('gulp-zip');
-var uglify = require('gulp-uglify');
-var beeper = require('beeper');
+const livereload = require('gulp-livereload');
+const postcss = require('gulp-postcss');
+const zip = require('gulp-zip');
+const uglify = require('gulp-uglify');
+const beeper = require('beeper');
 
 // postcss plugins
-var autoprefixer = require('autoprefixer');
-var colorFunction = require('postcss-color-mod-function');
-var cssnano = require('cssnano');
-var easyimport = require('postcss-easy-import');
-var tailwind = require('tailwindcss');
-var tailwindNesting = require('tailwindcss/nesting');
+const autoprefixer = require('autoprefixer');
+const cssnano = require('cssnano');
+const easyimport = require('postcss-easy-import');
+const tailwind = require('tailwindcss');
+const tailwindNesting = require('tailwindcss/nesting');
+const sass = require('gulp-sass')(require('sass'));
 
 function serve(done) {
   livereload.listen();
@@ -31,9 +31,8 @@ const handleError = (done) => {
 };
 
 function css(done) {
-  var processors = [
+  const processors = [
     easyimport,
-    colorFunction(),
     tailwindNesting(),
     tailwind('./tailwind.config.js'),
     autoprefixer(),
@@ -41,7 +40,8 @@ function css(done) {
   ];
 
   pump([
-    src('assets/css/*.css', {sourcemaps: true}),
+    src('assets/css/*.scss', {sourcemaps: true}),
+    sass().on('error', sass.logError),
     postcss(processors),
     dest('assets/built/', {sourcemaps: '.'}),
     livereload()
@@ -66,9 +66,9 @@ function js(done) {
 }
 
 function zipper(done) {
-  var targetDir = 'dist/';
-  var themeName = require('./package.json').name;
-  var filename = themeName + '.zip';
+  const targetDir = 'dist/';
+  const themeName = require('./package.json').name;
+  const filename = themeName + '.zip';
 
   pump([
     src([

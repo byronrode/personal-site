@@ -2,33 +2,38 @@ const allPlugins = {
   typography: require("@tailwindcss/typography"),
 };
 
-const plugins = Object.keys(allPlugins)
-  .map((k) => {
-    return allPlugins[k];
-  });
+const plugins = Object.keys(allPlugins).map((k) => {
+  return allPlugins[k];
+});
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ["./*.hbs", "./**/*.hbs"],
+  darkMode: "class",
   theme: {
     extend: {
       colors: {
-        'br-red': '#95323f',
-        'br-charcoal': '#131306',
+        primary: {
+          dark: "rgb(17,24,39)",
+          light: "rgb(75 81 96)",
+        },
+        highlight: "rgb(255 26 117)",
+        "br-red": "#95323f",
+        "br-charcoal": "#131306",
       },
       fontFamily: {
-        'inter': ['Inter', 'sans-serif'],
-        'zilla-slab': ['"Zilla Slab"', 'serif'],
-        'bitter': ['Bitter', 'serif'],
+        inter: ["Inter", "sans-serif"],
+        "zilla-slab": ['"Zilla Slab"', "serif"],
+        bitter: ["Bitter", "serif"],
       },
     },
   },
   safelist: [
     {
       pattern: /text-(1|2|3|4|5|6)xl/,
-      variants: ['sm', 'md', 'lg', 'sm:hover', 'md:hover', 'lg:hover']
+      variants: ["sm", "md", "lg", "sm:hover", "md:hover", "lg:hover"],
     },
-    'rounded',
+    "rounded",
     {
       pattern: /font-(bold|light)/,
     },
@@ -43,8 +48,8 @@ module.exports = {
     },
     {
       pattern: /bg-(br-red|br-charcoal)/,
-      variants: ['lg', 'hover', 'focus', 'lg:hover'],
+      variants: ["lg", "hover", "focus", "lg:hover"],
     },
   ],
   plugins: plugins,
-}
+};

@@ -1,81 +1,85 @@
 {
-    "name": "byronrode",
-    "description": "2024 Version",
-    "version": "1.0.6",
-    "engines": {
-        "ghost": ">=5.0.0"
-    },
-    "license": "MIT",
-    "author": {
-        "name": "Byron Rode",
-        "email": "byronrode@gmail.com",
-        "url": "https://byronrode.com"
-    },
-    "keywords": [
-        "byronrode",
-        "theme",
-        "ghost-theme"
-    ],
-    "config": {
-        "posts_per_page": 10,
-        "card_assets": true,
-        "image_sizes": {
-            "xs": {
-                "width": 150
-            },
-            "s": {
-                "width": 300
-            },
-            "m": {
-                "width": 750
-            },
-            "l": {
-                "width": 1140
-            },
-            "xl": {
-                "width": 1920
-            }
-        }
-    },
-    "scripts": {
-        "dev": "gulp",
-        "zip": "gulp zip",
-        "test": "gscan .",
-        "test:ci": "gscan --fatal --verbose .",
-        "pretest": "gulp build",
-        "preship": "yarn test",
-        "ship": "STATUS=$(git status --porcelain); echo $STATUS; if [ -z \"$STATUS\" ]; then yarn version && git push --follow-tags; else echo \"Uncomitted changes found.\" && exit 1; fi",
-        "postship": "git fetch && gulp release"
-    },
-    "browserslist": [
-        "defaults"
-    ],
-    "devDependencies": {
-        "@tailwindcss/typography": "^0.5.10",
-        "@tryghost/release-utils": "0.8.1",
-        "autoprefixer": "10.4.7",
-        "beeper": "2.1.0",
-        "cssnano": "5.1.12",
-        "gscan": "4.39.4",
-        "gulp": "4.0.2",
-        "gulp-concat": "2.6.1",
-        "gulp-livereload": "4.0.2",
-        "gulp-postcss": "9.0.1",
-        "gulp-uglify": "3.0.2",
-        "gulp-zip": "5.1.0",
-        "inquirer": "8.2.4",
-        "postcss": "8.2.13",
-        "postcss-color-mod-function": "^3.0.3",
-        "postcss-easy-import": "4.0.0",
-        "pump": "3.0.0",
-        "stylelint": "^16.1.0",
-        "stylelint-config-standard": "^36.0.0",
-        "stylelint-order": "^6.0.4",
-        "tailwindcss": "^3.4.1"
-    },
-    "renovate": {
-        "extends": [
-            "@tryghost:theme"
-        ]
+  "name": "byronrode",
+  "description": "2024 Version",
+  "version": "1.0.6",
+  "engines": {
+    "ghost": ">=5.0.0"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "Byron Rode",
+    "email": "byronrode@gmail.com",
+    "url": "https://byronrode.com"
+  },
+  "keywords": [
+    "byronrode",
+    "theme",
+    "ghost-theme"
+  ],
+  "config": {
+    "posts_per_page": 6,
+    "card_assets": true,
+    "image_sizes": {
+      "xs": {
+        "width": 150
+      },
+      "s": {
+        "width": 300
+      },
+      "m": {
+        "width": 750
+      },
+      "l": {
+        "width": 1140
+      },
+      "xl": {
+        "width": 1920
+      }
     }
+  },
+  "scripts": {
+    "dev": "gulp",
+    "zip": "gulp zip",
+    "test": "gscan .",
+    "test:ci": "gscan --fatal --verbose .",
+    "pretest": "gulp build",
+    "preship": "yarn test",
+    "ship": "STATUS=$(git status --porcelain); echo $STATUS; if [ -z \"$STATUS\" ]; then yarn version && git push --follow-tags; else echo \"Uncomitted changes found.\" && exit 1; fi",
+    "postship": "git fetch && gulp release"
+  },
+  "browserslist": [
+    "defaults"
+  ],
+  "devDependencies": {
+    "@tailwindcss/typography": "^0.5.10",
+    "@tryghost/release-utils": "^0.8.1",
+    "autoprefixer": "^10.4.7",
+    "beeper": "^2.1.0",
+    "cssnano": "^5.1.12",
+    "gscan": "^4.39.4",
+    "gulp": "^4.0.2",
+    "gulp-concat": "^2.6.1",
+    "gulp-livereload": "^4.0.2",
+    "gulp-postcss": "^9.0.1",
+    "gulp-uglify": "^3.0.2",
+    "gulp-zip": "^5.1.0",
+    "inquirer": "^8.2.4",
+    "postcss": "^8.2.13",
+    "postcss-color-mod-function": "^3.0.3",
+    "postcss-easy-import": "^4.0.0",
+    "pump": "^3.0.0",
+    "stylelint": "^16.1.0",
+    "stylelint-config-standard": "^36.0.0",
+    "stylelint-order": "^6.0.4",
+    "tailwindcss": "^3.4.1"
+  },
+  "renovate": {
+    "extends": [
+      "@tryghost:theme"
+    ]
+  },
+  "dependencies": {
+    "gulp-sass": "^5.1.0",
+    "sass": "^1.70.0"
+  }
 }

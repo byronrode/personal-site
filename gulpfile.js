@@ -7,6 +7,9 @@ const postcss = require('gulp-postcss');
 const zip = require('gulp-zip');
 const uglify = require('gulp-uglify');
 const beeper = require('beeper');
+const browserify = require('browserify');
+const vinylSourceStream = require('vinyl-source-stream');
+const vinylBuffer = require('vinyl-buffer');
 
 // postcss plugins
 const autoprefixer = require('autoprefixer');
@@ -15,6 +18,7 @@ const easyimport = require('postcss-easy-import');
 const tailwind = require('tailwindcss');
 const tailwindNesting = require('tailwindcss/nesting');
 const sass = require('gulp-sass')(require('sass'));
+const sourcemaps = require('gulp-sourcemaps');
 
 function serve(done) {
   livereload.listen();
@@ -57,9 +61,19 @@ function hbs(done) {
 }
 
 function js(done) {
+
+  const browserified = browserify({
+    entries: ['./assets/js/main.js'],
+    debug: true
+  });
+
   pump([
-    src('assets/js/*.js', {sourcemaps: true}),
+    browserified.bundle(),
+    vinylSourceStream('source.js'),
+    vinylBuffer(),
+    sourcemaps.init({ loadMaps: true }),
     uglify(),
+    sourcemaps.write('.'),
     dest('assets/built/', {sourcemaps: '.'}),
     livereload()
   ], handleError(done));
@@ -83,7 +97,9 @@ function zipper(done) {
 
 const cssWatcher = () => watch('assets/css/**', css);
 const hbsWatcher = () => watch(['*.hbs', '**/**/*.hbs', '!node_modules/**/*.hbs'], hbs);
-const watcher = parallel(cssWatcher, hbsWatcher);
+const jsWatcher = () => watch('assets/js/*.js', js);
+
+const watcher = parallel(cssWatcher, hbsWatcher, jsWatcher);
 const build = series(css, js);
 const dev = series(build, serve, watcher);
 

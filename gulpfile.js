@@ -1,102 +1,108 @@
-const {series, parallel, watch, src, dest} = require('gulp');
+const {series, watch, src, dest, parallel} = require('gulp');
 const pump = require('pump');
 
 // gulp plugins and utils
 const livereload = require('gulp-livereload');
-const gulpStylelint = require('gulp-stylelint');
 const postcss = require('gulp-postcss');
-const concat = require('gulp-concat');
+const zip = require('gulp-zip');
 const uglify = require('gulp-uglify');
 const beeper = require('beeper');
-const zip = require('gulp-zip');
+const browserify = require('browserify');
+const vinylSourceStream = require('vinyl-source-stream');
+const vinylBuffer = require('vinyl-buffer');
 
 // postcss plugins
-const easyimport = require('postcss-easy-import');
 const autoprefixer = require('autoprefixer');
 const cssnano = require('cssnano');
+const easyimport = require('postcss-easy-import');
+const tailwind = require('tailwindcss');
+const tailwindNesting = require('tailwindcss/nesting');
+const sass = require('gulp-sass')(require('sass'));
+const sourcemaps = require('gulp-sourcemaps');
 
 function serve(done) {
-    livereload.listen();
-    done();
+  livereload.listen();
+  done();
 }
 
-function handleError(done) {
-    return function (err) {
-        if (err) {
-            beeper();
-        }
-        return done(err);
-    };
+const handleError = (done) => {
+  return function (err) {
+    if (err) {
+      beeper();
+    }
+    return done(err);
+  };
 };
 
-function hbs(done) {
-    pump([
-        src(['*.hbs', 'partials/**/*.hbs', 'members/**/*.hbs']),
-        livereload()
-    ], handleError(done));
+function css(done) {
+  const processors = [
+    easyimport,
+    tailwindNesting(),
+    tailwind('./tailwind.config.js'),
+    autoprefixer(),
+    cssnano()
+  ];
+
+  pump([
+    src('assets/css/*.scss', {sourcemaps: true}),
+    sass().on('error', sass.logError),
+    postcss(processors),
+    dest('assets/built/', {sourcemaps: '.'}),
+    livereload()
+  ], handleError(done));
 }
 
-function css(done) {
-    pump([
-        src('assets/css/screen.css', {sourcemaps: true}),
-        postcss([
-            easyimport,
-            autoprefixer(),
-            cssnano()
-        ]),
-        dest('assets/built/', {sourcemaps: '.'}),
-        livereload()
-    ], handleError(done));
+function hbs(done) {
+  pump([
+    src(['*.hbs', '**/**/*.hbs', '!node_modules/**/*.hbs']),
+    livereload()
+  ], handleError(done));
+  css(done);
 }
 
 function js(done) {
-    pump([
-        src([
-            'assets/js/lib/*.js',
-            'assets/js/main.js'
-        ], {sourcemaps: true}),
-        concat('main.min.js'),
-        uglify(),
-        dest('assets/built/', {sourcemaps: '.'}),
-        livereload()
-    ], handleError(done));
-}
 
-function lint(done) {
-    pump([
-        src(['assets/css/**/*.css', '!assets/css/vendor/*']),
-        gulpStylelint({
-            fix: true,
-            reporters: [
-                {formatter: 'string', console: true}
-            ]
-        }),
-        dest('assets/css/')
-    ], handleError(done));
+  const browserified = browserify({
+    entries: ['./assets/js/main.js'],
+    debug: true
+  });
+
+  pump([
+    browserified.bundle(),
+    vinylSourceStream('source.js'),
+    vinylBuffer(),
+    sourcemaps.init({ loadMaps: true }),
+    uglify(),
+    sourcemaps.write('.'),
+    dest('assets/built/', {sourcemaps: '.'}),
+    livereload()
+  ], handleError(done));
 }
 
 function zipper(done) {
-    const filename = require('./package.json').name + '.zip';
+  const targetDir = 'dist/';
+  const themeName = require('./package.json').name;
+  const filename = themeName + '.zip';
 
-    pump([
-        src([
-            '**',
-            '!node_modules', '!node_modules/**',
-            '!dist', '!dist/**',
-            '!yarn-error.log'
-        ]),
-        zip(filename),
-        dest('dist/')
-    ], handleError(done));
+  pump([
+    src([
+      '**',
+      '!node_modules', '!node_modules/**',
+      '!dist', '!dist/**'
+    ]),
+    zip(filename),
+    dest(targetDir)
+  ], handleError(done));
 }
 
-const hbsWatcher = () => watch(['*.hbs', 'partials/**/*.hbs', 'members/**/*.hbs'], hbs);
-const cssWatcher = () => watch('assets/css/**/*.css', css);
-const jsWatcher = () => watch('assets/js/**/*.js', js);
-const watcher = parallel(hbsWatcher, cssWatcher, jsWatcher);
+const cssWatcher = () => watch('assets/css/**', css);
+const hbsWatcher = () => watch(['*.hbs', '**/**/*.hbs', '!node_modules/**/*.hbs'], hbs);
+const jsWatcher = () => watch('assets/js/*.js', js);
+
+const watcher = parallel(cssWatcher, hbsWatcher, jsWatcher);
 const build = series(css, js);
+const dev = series(build, serve, watcher);
 
 exports.build = build;
-exports.lint = lint;
 exports.zip = series(build, zipper);
-exports.default = series(build, serve, watcher);
+exports.default = dev;

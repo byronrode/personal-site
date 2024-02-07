@@ -1,0 +1,55 @@
+ {{#match @page.show_title_and_feature_image}}
+  {{!< default}}
+{{/match}}
+
+{{#post}}
+  <article class="page">
+    <div class="sm:px-8 mt-16 sm:mt-32">
+      <div class="mx-auto w-full max-w-7xl lg:px-8">
+        <div class="relative px-4 sm:px-8 lg:px-12">
+          <div class="mx-auto max-w-2xl lg:max-w-5xl">
+
+            <div class="grid grid-cols-1 gap-y-16 lg:grid-cols-2 lg:grid-rows-[auto_1fr] lg:gap-y-12">
+              {{#if feature_image}}
+                <div class="lg:pl-20">
+                  <div class="max-w-xs px-2.5 lg:max-w-none">
+                    <img
+                      src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+                      srcset="{{> srcset}}" alt="{{title}}" loading="lazy" width="800" height="800" decoding="async" data-nimg="1"
+                      class="aspect-square rotate-3 rounded-2xl bg-zinc-100 object-cover dark:bg-zinc-800"
+                      sizes="(min-width: 1024px) 32rem, 20rem" style="color: transparent;">
+                  </div>
+                </div>
+              {{/if}}
+
+              <div class="lg:order-first {{#if feature_image}}lg:row-span-2{{else}}lg:col-span-2{{/if}}">
+                <h1 class="text-4xl font-bold tracking-tight text-zinc-800 sm:text-5xl dark:text-zinc-100">{{title}}</h1>
+                <div class="mt-6 space-y-7 text-base text-zinc-600 dark:text-zinc-400">
+                  {{content}}
+                </div>
+              </div>
+
+              {{#is "about"}}
+                <div class="lg:pl-20">
+                  {{> "components/socials-list" }}
+                </div>
+              {{/is}}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </article>
+
+{{/post}}
+
+{{> related}}
+
+{{#contentFor "scripts"}}
+  <script>
+    (function () {
+      const highlight = document.querySelector('pre');
+
+    });
+  </script>
+{{/contentFor}}

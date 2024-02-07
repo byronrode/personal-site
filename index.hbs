@@ -4,10 +4,14 @@
     <main class="site-main container">
         <div class="post-feed">
             <div class="grid-item grid-sizer"></div>
+            {{#get "posts" limit="1" include="tags"
+                        order="published_at desc" filter="tag:-job"}}
             {{#foreach posts}}
                 {{> "loop"}}
             {{/foreach}}
+              {{pagination}}
+            {{/get}}
         </div>
-        {{pagination}}
+
     </main>
 </div>

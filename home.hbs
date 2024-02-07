@@ -1,16 +1,36 @@
 {{!< default}}
 
-{{#page}}
-<div class="content-area">
-    <main class="site-main">
-        <article class="post no-image page single">
-            <header class="post-header container large">
-                <h1 class="post-title">{{title}}</h1>
-            </header>
-            <div class="post-content kg-canvas u-text-format">
-                {{content}}
+<div class="mt-9 sm:px-8">
+    <div class="mx-auto w-full max-w-7xl lg:px-8">
+        <div class="relative px-4 sm:px-8 lg:px-12">
+            <div class="mx-auto max-w-2xl lg:max-w-5xl">
+                <div class="max-w-3xl">
+                    {{> "components/home-intro" }}
+                    {{> "components/social-links" }}
+                </div>
             </div>
-        </article>
-    </main>
+        </div>
+    </div>
 </div>
-{{/page}}
+
+<div class="mt-24 sm:px-8 md:mt-28">
+    <div class="mx-auto w-full max-w-7xl lg:px-8">
+        <div class="relative px-4 sm:px-8 lg:px-12">
+            <div class="mx-auto max-w-2xl lg:max-w-5xl">
+                <div class="mx-auto grid max-w-xl grid-cols-1 gap-y-20 lg:max-w-none lg:grid-cols-2">
+                    <div class="flex flex-col gap-16">
+                        {{#get "posts" limit="3" include="tags" order="published_at desc" filter="tag:-job"}}
+                          {{#foreach posts}}
+                            {{>home-loop}}
+                          {{/foreach}}
+                        {{/get}}
+                    </div>
+                    <div class="space-y-10 lg:pl-16 xl:pl-24" style="margin-top:-24px;">
+                      {{!> "components/sign-up-form" !}}
+                      {{> "components/work-history"}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

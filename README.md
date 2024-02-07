@@ -1,10 +1,13 @@
-# byronrode.co.za
+# Personal Theme
 
-Based off of [Edge](https://edge.ghost.io)
+Version 2.0
 
-&nbsp;
+This is based off of Tailwind UI's [Spotlight](https://tailwindui.com/templates/spotlight) theme, 
+with some custom tweaking and a few other changes.
 
-# Copyright & License
+Requires: Yarn 4+, Node 20+, Tailwind
 
-Copyright (c) 2021 Byron Rode - Using existing Echo [MIT license](LICENSE).
-Copyright (c) 2013-2021 Ghost Foundation - Released under the [MIT license](LICENSE).
+### Copyright & License
+
+Copyright (c) 2024 Byron Rode
+Copyright (c) 2013-2024 Ghost Foundation - Released under the [MIT license](LICENSE).

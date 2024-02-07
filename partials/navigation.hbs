@@ -1,31 +1,64 @@
 {{#if isSecondary}}
+
   <nav class="footer-nav">
   {{#foreach navigation}}
     <a class="transition hover:text-rose-500 dark:hover:text-rose-400" href="{{url absolute="true"}}">{{label}}</a>
   {{/foreach}}
   </nav>
-{{else}}
-  <div class="pointer-events-auto md:hidden" data-headlessui-state="">
-  <button class="group flex items-center rounded-full bg-white/90 px-4 py-2 text-sm font-medium text-zinc-800 ring-1 ring-zinc-900/5 backdrop-blur dark:bg-zinc-800/90 dark:text-zinc-200 dark:ring-white/10 dark:hover:ring-white/20" type="button" aria-expanded="false" data-headlessui-state="" id="headlessui-popover-button-:R2miqla:">
-    Menu
-    <svg viewBox="0 0 8 6" aria-hidden="true" class="ml-3 h-auto w-2 stroke-zinc-500 group-hover:stroke-zinc-700 dark:group-hover:stroke-zinc-400">
-      <path d="M1.75 1.75 4 4.25l2.25-2.5" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-    </svg>
-  </button>
-</div>
 
-<nav class="pointer-events-auto hidden md:block">
-  <ul class="flex rounded-full text-nowrap bg-white/90 px-3 text-sm font-medium text-zinc-800 ring-1 ring-black/10 backdrop-blur dark:bg-black/15 dark:text-white dark:ring-black/40">
-    {{#foreach navigation}}
-        <li class="menu-item-{{slug}}{{#if current}} menu-item-current{{/if}}">
-          <a class="relative block px-3 py-2 transition {{#if current}}text-highlight{{/if}} hover:text-highlight dark:hover:text-highlight" href="{{url absolute="true"}}">
-            {{label}}
-            {{#if current}}
-              <span class="absolute inset-x-1 -bottom-px h-px bg-gradient-to-r from-rose-500/0 via-rose-500/40 to-rose-500/0 dark:from-rose-400/0 dark:via-rose-400/40 dark:to-rose-400/0"></span>
-          {{/if}}
-          </a>
-        </li>
-    {{/foreach}}
-  </ul>
-</nav>
+{{else}}
+
+  <div class="pointer-events-auto md:hidden">
+    <button class="nav-menu-button group flex items-center rounded-full bg-white/90 px-4 py-2 text-sm font-medium text-zinc-800 ring-1 ring-zinc-900/5 backdrop-blur dark:bg-black/60 dark:text-zinc-200 dark:ring-white/10 dark:hover:ring-white/20" type="button" aria-expanded="false">
+      Menu
+      <svg viewBox="0 0 8 6" aria-hidden="true" class="ml-3 h-auto w-2 stroke-zinc-500 group-hover:stroke-zinc-700 dark:group-hover:stroke-zinc-400">
+        <path d="M1.75 1.75 4 4.25l2.25-2.5" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+      </svg>
+    </button>
+
+    <div class="main-navigation-mobile hidden md:hidden">
+      <div class="fixed inset-0 z-50 bg-zinc-800/40 backdrop-blur-sm dark:bg-black/80" aria-hidden="true"></div>
+      <div class="fixed inset-x-4 top-8 z-50 origin-top rounded-3xl bg-white p-8 ring-1 ring-zinc-900/5 dark:bg-zinc-900 dark:ring-zinc-800">
+        <div class="flex flex-row-reverse items-center justify-between">
+          <button aria-label="Close menu" class="close-nav-menu -m-1 p-1" type="button">
+            <svg viewBox="0 0 24 24" aria-hidden="true" class="h-6 w-6 text-zinc-500 dark:text-zinc-400">
+              <path d="m17.25 6.75-10.5 10.5M6.75 6.75l10.5 10.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+          </button>
+          <h3 class="text-sm font-medium text-zinc-600 dark:text-zinc-400">Navigation</h3>
+        </div>
+
+        <nav class="mt-6">
+          <ul class="-my-2 divide-y divide-zinc-100 text-base text-zinc-800 dark:divide-zinc-100/5 dark:text-zinc-300">
+             {{#foreach navigation}}
+                <li>
+                  <a class="block py-2" href="{{url absolute="true"}}">
+                    {{label}}
+                    {{#if current}}
+                      <span class="absolute inset-x-1 -bottom-px h-px bg-gradient-to-r from-rose-500/0 via-rose-500/40 to-rose-500/0 dark:from-rose-400/0 dark:via-rose-400/40 dark:to-rose-400/0"></span>
+                  {{/if}}
+                  </a>
+                </li>
+            {{/foreach}}
+          </ul>
+        </nav>
+      </div>
+    </div>
+
+  </div>
+
+  <nav class="main-navigation pointer-events-auto hidden md:block">
+    <ul class="flex rounded-full text-nowrap bg-white/90 px-3 text-sm font-medium text-zinc-800 ring-1 ring-black/10 backdrop-blur dark:bg-black/15 dark:text-white dark:ring-black/40">
+      {{#foreach navigation}}
+          <li class="menu-item-{{slug}}{{#if current}} menu-item-current{{/if}}">
+            <a class="relative block px-3 py-2 transition {{#if current}}text-highlight{{/if}} hover:text-highlight dark:hover:text-highlight" href="{{url absolute="true"}}">
+              {{label}}
+              {{#if current}}
+                <span class="absolute inset-x-1 -bottom-px h-px bg-gradient-to-r from-rose-500/0 via-rose-500/40 to-rose-500/0 dark:from-rose-400/0 dark:via-rose-400/40 dark:to-rose-400/0"></span>
+            {{/if}}
+            </a>
+          </li>
+      {{/foreach}}
+    </ul>
+  </nav>
 {{/if}}

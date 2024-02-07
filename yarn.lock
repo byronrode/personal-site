@@ -2998,7 +2998,6 @@ __metadata:
     cssnano: "npm:^5.1.12"
     gscan: "npm:^4.39.4"
     gulp: "npm:^4.0.2"
-    gulp-concat: "npm:^2.6.1"
     gulp-livereload: "npm:^4.0.2"
     gulp-postcss: "npm:^9.0.1"
     gulp-sass: "npm:^5.1.0"
@@ -3541,15 +3540,6 @@ __metadata:
     readable-stream: "npm:^2.2.2"
     typedarray: "npm:^0.0.6"
   checksum: 10/71db903c84fc073ca35a274074e8d26c4330713d299f8623e993c448c1f6bf8b967806dd1d1a7b0f8add6f15ab1af7435df21fe79b4fe7efd78420c89e054e28
-  languageName: node
-  linkType: hard
-
-"concat-with-sourcemaps@npm:^1.0.0":
-  version: 1.1.0
-  resolution: "concat-with-sourcemaps@npm:1.1.0"
-  dependencies:
-    source-map: "npm:^0.6.1"
-  checksum: 10/57faa6f4a6f38a1846a58f96b2745ec8435755e0021f069e89085c651d091b78d9bc20807ea76c38c85021acca80dc2fa4cedda666aade169b602604215d25b9
   languageName: node
   linkType: hard
 
@@ -5594,17 +5584,6 @@ __metadata:
   bin:
     gulp: bin/gulp.js
   checksum: 10/d1a47535b6aba7167d42fcca341939e3b5a907976dd8a5fcc6a0c03723f9d74156d49cf4b82aa3e30d6d56cfbb54dd145874b58ad4bb859666c1ee537933d65b
-  languageName: node
-  linkType: hard
-
-"gulp-concat@npm:^2.6.1":
-  version: 2.6.1
-  resolution: "gulp-concat@npm:2.6.1"
-  dependencies:
-    concat-with-sourcemaps: "npm:^1.0.0"
-    through2: "npm:^2.0.0"
-    vinyl: "npm:^2.0.0"
-  checksum: 10/9dc864ce9306634e4b9855d4af822a82c41c46ca05c5d0538d3f48c5c7061e4c3e13571a0404662d83c9c89574e0d635b1c356effc8d3fd5d788e0dadd061b82
   languageName: node
   linkType: hard
 

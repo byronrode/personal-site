@@ -64,17 +64,17 @@ function js(done) {
 
   const browserified = browserify({
     entries: ['./assets/js/main.js'],
-    debug: true
+    debug: false
   });
 
   pump([
     browserified.bundle(),
     vinylSourceStream('source.js'),
     vinylBuffer(),
-    sourcemaps.init({ loadMaps: true }),
+    sourcemaps.init({ loadMaps: false }),
     uglify(),
     sourcemaps.write('.'),
-    dest('assets/built/', {sourcemaps: '.'}),
+    dest('assets/built/'),
     livereload()
   ], handleError(done));
 }

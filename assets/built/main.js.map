@@ -1,1 +1,0 @@
-{"version":3,"file":"main.js","sources":["main.js"],"sourcesContent":["const hljs = require('highlight.js/lib/core');\n\nhljs.registerLanguage('javascript', require('highlight.js/lib/languages/javascript'));\n"],"names":["hljs","require","registerLanguage"],"mappings":"AAAA,MAAMA,KAAOC,QAAQ,uBAAuB,EAE5CD,KAAKE,iBAAiB,aAAcD,QAAQ,uCAAuC,CAAC"}

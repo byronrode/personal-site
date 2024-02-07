@@ -84,6 +84,7 @@
     "gulp-sass": "^5.1.0",
     "gulp-sourcemaps": "^3.0.0",
     "highlight.js": "^11.9.0",
+    "mixpanel-browser": "^2.49.0",
     "sass": "^1.70.0"
   }
 }

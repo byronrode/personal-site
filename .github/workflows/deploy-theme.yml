@@ -19,3 +19,41 @@ jobs:
         with:
           api-url: ${{ secrets.GHOST_ADMIN_API_URL }}
           api-key: ${{ secrets.GHOST_ADMIN_API_KEY }}
+
+      - name: Notify on Slack
+        id: slack
+        if: ${{ success() }}
+        uses: slackapi/slack-github-action@v1.25.0
+        with:
+          payload: |
+            {
+                "blocks": [
+                    {
+                        "type": "header",
+                        "text": {
+                            "type": "plain_text",
+                            "text": "Deploy Success :rocket:",
+                            "emoji": true
+                        }
+                    },
+                    {
+                        "type": "section",
+                        "text": {
+                            "type": "mrkdwn",
+                            "text": "[*Byron Rode*][*Production*] Theme updates have been deployed to [byronrode.com](https://byronrode.com)."
+                        }
+                    },
+                    {
+                        "type": "context",
+                        "elements": [
+                            {
+                                "type": "mrkdwn",
+                                "text": "*Build Initiated By*: ${{github.actor}}"
+                            }
+                        ]
+                    }
+                ]
+            }
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_INBOUND_WEBHOOK }}
+          SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK

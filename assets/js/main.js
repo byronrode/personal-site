@@ -5,4 +5,7 @@ const trackLinks = require('./lib/tracker');
 highlightCode();
 
 // Handle Mixpanel event tracking
-trackLinks();
+const currentURL = window.location.href;
+if (!currentURL.includes('localhost')) {
+  trackLinks();
+}

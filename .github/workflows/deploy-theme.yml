@@ -40,7 +40,7 @@ jobs:
                         "type": "section",
                         "text": {
                             "type": "mrkdwn",
-                            "text": "[*Byron Rode*][*Production*] Theme updates have been deployed to [byronrode.com](https://byronrode.com)."
+                            "text": "[*Byron Rode*][*Production*] Theme updates have been deployed to (byronrode.com)[https://byronrode.com]."
                         }
                     },
                     {

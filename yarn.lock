@@ -49,6 +49,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@builder.io/partytown@npm:^0.9.2":
+  version: 0.9.2
+  resolution: "@builder.io/partytown@npm:0.9.2"
+  bin:
+    partytown: bin/partytown.cjs
+  checksum: 10/09871da8600caa1e2ceeff6d92f36812f08a03e5c6cdc62dbbca43963a3402fe5ee8cb43fd795ac14030ca3138fbbfbcf0d70ccd54a84c65ecd3226b93c32d32
+  languageName: node
+  linkType: hard
+
 "@csstools/convert-colors@npm:^1.4.0":
   version: 1.4.0
   resolution: "@csstools/convert-colors@npm:1.4.0"
@@ -2990,6 +2999,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "byronrode@workspace:."
   dependencies:
+    "@builder.io/partytown": "npm:^0.9.2"
     "@tailwindcss/typography": "npm:^0.5.10"
     "@tryghost/release-utils": "npm:^0.8.1"
     autoprefixer: "npm:^10.4.7"
@@ -3163,17 +3173,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"caniuse-lite@npm:^1.0.0, caniuse-lite@npm:^1.0.30001400":
-  version: 1.0.30001436
-  resolution: "caniuse-lite@npm:1.0.30001436"
-  checksum: 10/9da36da1c5aefb7369e00e5ae4b7018df7b4337eef4607d3d5ab5efcd29aabff5b150b005fb37950dafec737ee4d0de63a0ad41878aa6f95a89459ffed5cba2c
-  languageName: node
-  linkType: hard
-
-"caniuse-lite@npm:^1.0.30001578, caniuse-lite@npm:^1.0.30001580":
-  version: 1.0.30001582
-  resolution: "caniuse-lite@npm:1.0.30001582"
-  checksum: 10/a932dd237e0c28b5f1eb8d80f77ca0b6ce48075aaed70ba0044fd7870a899377cd6e333d13a0d3ae6d1bf030192b9625934f31def63f4636f8da8c22c2aea330
+"caniuse-lite@npm:^1.0.0, caniuse-lite@npm:^1.0.30001400, caniuse-lite@npm:^1.0.30001578, caniuse-lite@npm:^1.0.30001580":
+  version: 1.0.30001588
+  resolution: "caniuse-lite@npm:1.0.30001588"
+  checksum: 10/09150ef2daa65c75cb2681832d5bc203760a02d9f71eb033dc0401fbfdbe026d3a84e54a8d2085f730a4f51eb074028b89013dd033841e1a0eb3c7323a50ed45
   languageName: node
   linkType: hard
 

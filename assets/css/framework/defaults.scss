@@ -96,6 +96,16 @@ html {
         }
       }
 
+      .kg-card {
+        a {
+          text-decoration: none;
+          
+          &:hover {
+            text-decoration: none;
+          }
+        }
+      }
+
       .kg-gallery-card {
         left: -80%;
 

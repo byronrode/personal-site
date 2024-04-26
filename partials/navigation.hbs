@@ -47,18 +47,20 @@
 
   </div>
 
-  <nav class="main-navigation pointer-events-auto hidden md:block">
-    <ul class="flex rounded-full text-nowrap bg-white/90 px-3 text-sm font-medium text-zinc-800 ring-1 ring-black/10 backdrop-blur dark:bg-black/15 dark:text-white dark:ring-black/40">
-      {{#foreach navigation}}
-          <li class="menu-item-{{slug}}{{#if current}} menu-item-current{{/if}}">
-            <a class="relative block px-3 py-2 transition {{#if current}}text-highlight{{/if}} hover:text-highlight dark:hover:text-highlight" href="{{url absolute="true"}}">
-              {{label}}
-              {{#if current}}
-                <span class="absolute inset-x-1 -bottom-px h-px bg-gradient-to-r from-rose-500/0 via-rose-500/40 to-rose-500/0 dark:from-rose-400/0 dark:via-rose-400/40 dark:to-rose-400/0"></span>
-            {{/if}}
-            </a>
-          </li>
-      {{/foreach}}
-    </ul>
+  <nav class="pointer-events-auto hidden md:block">
+    <div class="main-navigation rounded-full bg-black inline-block p-[1px] hover:bg-black hover:bg-opacity-20">
+      <ul class="flex rounded-full text-nowrap px-3 text-sm font-medium text-zinc-800 ring-1 ring-black/10 backdrop-blur dark:bg-black/90 dark:text-white dark:ring-black/40">
+        {{#foreach navigation}}
+            <li class="menu-item-{{slug}}{{#if current}} menu-item-current{{/if}}">
+              <a class="relative block px-3 py-2 transition {{#if current}}text-highlight{{/if}} hover:text-highlight dark:hover:text-highlight" href="{{url absolute="true"}}">
+                {{label}}
+                {{#if current}}
+                  <span class="absolute inset-x-1 -bottom-px h-px bg-gradient-to-r from-rose-500/0 via-rose-500/40 to-rose-500/0 dark:from-rose-400/0 dark:via-rose-400/40 dark:to-rose-400/0"></span>
+              {{/if}}
+              </a>
+            </li>
+        {{/foreach}}
+      </ul>
+    </div>
   </nav>
 {{/if}}

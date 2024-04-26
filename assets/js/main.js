@@ -1,5 +1,6 @@
 const highlightCode = require('./lib/highlighter');
 const trackLinks = require('./lib/tracker');
+const mouseTrackingGlow = require('./lib/ui');
 
 // Handle code highlighting
 highlightCode();
@@ -27,4 +28,7 @@ if (navMenu) {
 
   })
 }
+
+// Handle mouse tracking glow effect
+mouseTrackingGlow();
 

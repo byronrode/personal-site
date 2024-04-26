@@ -19,11 +19,11 @@
 
 html {
   font-family: "Work Sans",
-  sans-serif,
-  Apple Color Emoji,
-  Segoe UI Emoji,
-  Segoe UI Symbol,
-  Noto Color Emoji;
+    sans-serif,
+    Apple Color Emoji,
+    Segoe UI Emoji,
+    Segoe UI Symbol,
+    Noto Color Emoji;
 
   h1,
   h2,
@@ -34,9 +34,10 @@ html {
     font-family: "Wix Madefor Display", serif;
   }
 
-  .prose :where(pre):not(:where([class~=not-prose],[class~=not-prose] *)) {
+  .prose :where(pre):not(:where([class~=not-prose], [class~=not-prose] *)) {
     border-radius: 0.75rem;
     padding: 24px 32px 24px 32px;
+
     @media (min-width: 768px) {
       width: 60vw;
       position: relative;
@@ -44,26 +45,43 @@ html {
     }
   }
 
-  code, pre, kbd, samp {
+  code,
+  pre,
+  kbd,
+  samp {
     font-family: 'Zed Mono Web', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, Liberation Mono, Courier New, monospace !important;
     font-size: 16px !important;
     font-style: oblique;
   }
 
   body {
+
+    // background-image: radial-gradient(circle at var(--x) var(--y),
+    //     rgba(157, 193, 244, 0.1) 0,
+    //     transparent 600px);
+
     a {
       text-decoration: none !important;
       transition: color 0.25s ease-out,
-      background-color 0.25s ease-out,
-      border-color 0.25s ease-out,
-      box-shadow 0.25s ease-out;
+        background-color 0.25s ease-out,
+        border-color 0.25s ease-out,
+        box-shadow 0.25s ease-out;
     }
 
     p {
       font-size: 18px;
     }
 
-    .page, .post, .home-intro {
+    .main-navigation,
+    .work-history {
+      background-image: radial-gradient(circle at var(--x) var(--y),
+          rgb(255, 0, 128) 0,
+          transparent 220px);
+    }
+
+    .page,
+    .post,
+    .home-intro {
 
       h2 {
         font-size: 28px;

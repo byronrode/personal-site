@@ -10,7 +10,8 @@
   --header-mb: -116px;
 
   --avatar-image-transform: translate3d(0rem, 0, 0) scale(1);
-  --avatar-border-transform: translate3d(-0.2222222222222222rem, 0, 0) scale(1.7777777777777777);
+  --avatar-border-transform: translate3d(-0.2222222222222222rem, 0, 0)
+    scale(1.7777777777777777);
   --avatar-border-opacity: 0;
 
   --header-top: 0px;
@@ -18,7 +19,8 @@
 }
 
 html {
-  font-family: "Work Sans",
+  font-family:
+    "Work Sans",
     sans-serif,
     Apple Color Emoji,
     Segoe UI Emoji,
@@ -34,7 +36,7 @@ html {
     font-family: "Wix Madefor Display", serif;
   }
 
-  .prose :where(pre):not(:where([class~=not-prose], [class~=not-prose] *)) {
+  .prose :where(pre):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
     border-radius: 0.75rem;
     padding: 24px 32px 24px 32px;
 
@@ -49,20 +51,29 @@ html {
   pre,
   kbd,
   samp {
-    font-family: 'Zed Mono Web', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, Liberation Mono, Courier New, monospace !important;
+    font-family:
+      "Zed Mono Web",
+      ui-monospace,
+      SFMono-Regular,
+      Menlo,
+      Monaco,
+      Consolas,
+      Liberation Mono,
+      Courier New,
+      monospace !important;
     font-size: 16px !important;
     font-style: oblique;
   }
 
   body {
-
     // background-image: radial-gradient(circle at var(--x) var(--y),
     //     rgba(157, 193, 244, 0.1) 0,
     //     transparent 600px);
 
     a {
       text-decoration: none !important;
-      transition: color 0.25s ease-out,
+      transition:
+        color 0.25s ease-out,
         background-color 0.25s ease-out,
         border-color 0.25s ease-out,
         box-shadow 0.25s ease-out;
@@ -73,16 +84,18 @@ html {
     }
 
     .main-navigation,
-    .work-history {
-      background-image: radial-gradient(circle at var(--x) var(--y),
-          rgb(255, 0, 128) 0,
-          transparent 220px);
+    .work-history,
+    .glow {
+      background-image: radial-gradient(
+        circle at var(--x) var(--y),
+        rgb(255, 0, 128) 0,
+        transparent 220px
+      );
     }
 
     .page,
     .post,
     .home-intro {
-
       h2 {
         font-size: 28px;
         color: rgb(var(--color-white));
@@ -95,13 +108,16 @@ html {
       a {
         color: rgb(var(--color-white));
         border-bottom: 1px solid rgb(var(--color-white));
-        transition: color .25s ease-out, background-color .25s ease-out, border-color .25s ease-out, box-shadow .25s ease-out;
+        transition:
+          color 0.25s ease-out,
+          background-color 0.25s ease-out,
+          border-color 0.25s ease-out,
+          box-shadow 0.25s ease-out;
 
         &:hover {
           color: rgb(var(--color-highlight));
           border-bottom: 1px solid rgb(var(--color-highlight));
         }
-
       }
 
       a.post-button {
@@ -135,10 +151,8 @@ html {
       }
     }
 
-
     @media (min-width: 768px) {
       .kg-gallery {
-
         &-card {
           width: 100vw;
           left: -90%;

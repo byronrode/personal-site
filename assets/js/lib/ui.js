@@ -21,18 +21,22 @@ const mouseTrackingGlow = () => {
       navigationElement.style.setProperty('--y', `${navY}px`);
 
       // Work History
-      const workRect = workHistory.getBoundingClientRect();
-      const workX = x - (workRect.left - rect.left);
-      const workY = y - (workRect.top - rect.top);
-      workHistory.style.setProperty('--x', `${workX}px`);
-      workHistory.style.setProperty('--y', `${workY}px`);
+      if (workHistory) {
+        const workRect = workHistory.getBoundingClientRect();
+        const workX = x - (workRect.left - rect.left);
+        const workY = y - (workRect.top - rect.top);
+        workHistory.style.setProperty('--x', `${workX}px`);
+        workHistory.style.setProperty('--y', `${workY}px`);
+      }
 
       // Glow
-      const glowRect = glow.getBoundingClientRect();
-      const glowX = x - (glowRect.left - rect.left);
-      const glowY = y - (glowRect.top - rect.top);
-      glow.style.setProperty('--x', `${glowX}px`);
-      glow.style.setProperty('--y', `${glowY}px`);
+      if (glow) {
+        const glowRect = glow.getBoundingClientRect();
+        const glowX = x - (glowRect.left - rect.left);
+        const glowY = y - (glowRect.top - rect.top);
+        glow.style.setProperty('--x', `${glowX}px`);
+        glow.style.setProperty('--y', `${glowY}px`);
+      }
     };
 
     mainElement.addEventListener('mousemove', handleMouseMove);

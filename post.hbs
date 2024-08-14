@@ -39,6 +39,14 @@
 
               </article>
 
+              {{#if comments}}
+                <h2 class="mt-6 text-xl font-bold text-zinc-800 sm:text-xl dark:text-zinc-100">Have Your Say?</h2>
+                {{comment_count autowrap="div" class="comment-count" }}
+                <div class="mt-4 text-base">
+                  {{comments title="" count=false mode="dark" saturation=60}}
+                </div>
+              {{/if}}
+
               {{> related}}
 
             {{/post}}

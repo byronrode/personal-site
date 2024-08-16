@@ -1,4 +1,5 @@
-<form class="rounded-2xl border border-zinc-100 p-6 dark:border-zinc-700/40" data-members-form>
+<form class="glow rounded-2xl p-[1px] bg-black" data-members-form>
+<div class="rounded-2xl border border-zinc-100 p-6 dark:border-zinc-700/40 bg-[rgb(12,19,35)]">
   <h2 class="flex text-sm font-semibold text-zinc-900 dark:text-zinc-100">
     <svg fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="h-6 w-6 flex-none">
       <path d="M2.75 7.75a3 3 0 0 1 3-3h12.5a3 3 0 0 1 3 3v8.5a3 3 0 0 1-3 3H5.75a3 3 0 0 1-3-3v-8.5Z" class="fill-zinc-100 stroke-zinc-400 dark:fill-zinc-100/10 dark:stroke-zinc-500"                                    ></path>
@@ -10,9 +11,14 @@
     Get notified when I publish something new, and unsubscribe at any time.
   </p>
   <div class="mt-6 flex">
-    <input data-members-email type="email" placeholder="Email address" aria-label="Email address" required class="min-w-0 flex-auto appearance-none rounded-md border border-zinc-900/10 bg-white px-3 py-[calc(theme(spacing.2)-1px)] shadow-md shadow-zinc-800/5 placeholder:text-zinc-400 focus:border-rose-500 focus:outline-none focus:ring-4 focus:ring-rose-500/10 sm:text-sm dark:border-zinc-700 dark:bg-zinc-700/[0.15] dark:text-zinc-200 dark:placeholder:text-zinc-500 dark:focus:border-rose-400 dark:focus:ring-rose-400/10" />
-    <button class="ml-4 inline-flex flex-none items-center justify-center gap-2 rounded-md bg-zinc-800 px-3 py-2 text-sm font-semibold text-zinc-100 outline-offset-2 transition hover:bg-zinc-700 active:bg-zinc-800 active:text-zinc-100/70 active:transition-none dark:bg-zinc-700 dark:hover:bg-zinc-600 dark:active:bg-zinc-700 dark:active:text-zinc-100/70" type="submit">
+    <input data-members-email type="email" placeholder="Email address" aria-label="Email address" required class="min-w-0 flex-auto appearance-none rounded-md border bg-white px-3 py-[calc(theme(spacing.2)-1px)] shadow-md shadow-highlight-800/5 placeholder:text-zinc-400 focus:border-highlight-500 focus:outline-none focus:ring-1 focus:ring-highlight/10 sm:text-sm dark:border-zinc-700 dark:bg-zinc-700/[0.15] dark:text-zinc-200 dark:placeholder:text-zinc-500 dark:focus:outline-none dark:focus:border-highlight-400 dark:focus:ring-1 dark:focus:ring-highlight" />
+    <button class="group ml-4 inline-flex items-center justify-center gap-2 rounded-md px-3 py-2 text-sm font-medium text-white outline-offset-2 transition hover:bg-slate-100 active:bg-zinc-100 active:text-zinc-900/60 active:transition-none dark:bg-highlight/80 dark:text-white dark:hover:bg-slate-800 dark:hover:text-zinc-50 dark:active:bg-zinc-800/50 dark:active:text-white" type="submit">
       Join
     </button>
   </div>
+
+  <p class="loading hidden text-white text-sm mt-4">Subscribing...</p>
+  <p class="error hidden text-white text-sm mt-4 group w-full items-center justify-center gap-2 rounded-md px-3 py-2 text-sm font-medium text-white outline-offset-2 transition active:bg-zinc-100 active:text-zinc-900/60 active:transition-none dark:bg-red-500/80 dark:text-white dark:active:bg-green-800/50 dark:active:text-white">Something went wrong. Please try again.</p>
+  <p class="success hidden text-white text-sm mt-4 group w-full items-center justify-center gap-2 rounded-md px-3 py-2 text-sm font-medium text-white outline-offset-2 transition active:bg-zinc-100 active:text-zinc-900/60 active:transition-none dark:bg-green-500/80 dark:text-white dark:active:bg-green-800/50 dark:active:text-white">Success! Please check your inbox for a confirmation email.</p>
+</div>
 </form>

@@ -36,6 +36,12 @@ html {
     font-family: "Wix Madefor Display", serif;
   }
 
+  .loading .loading,
+  .success .success,
+  .error .error {
+    display: block;
+  }
+
   .prose :where(pre):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
     border-radius: 0.75rem;
     padding: 24px 32px 24px 32px;

@@ -26,7 +26,10 @@
                         {{/get}}
                     </div>
                     <div class="space-y-10 lg:pl-16 xl:pl-24" style="margin-top:-24px;">
+                    {{#if @member}}
+                    {{else}}
                       {{> "components/sign-up-form" }}
+                    {{/if}}
                       {{> "components/work-history"}}
                     </div>
                 </div>

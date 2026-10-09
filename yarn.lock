@@ -264,42 +264,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@openpanel/web@npm:1.4.1":
-  version: 1.4.1
-  resolution: "@openpanel/web@npm:1.4.1"
-  dependencies:
-    "@openpanel/sdk": "npm:1.3.1"
-    "@rrweb/types": "npm:2.0.0-alpha.20"
-    rrweb: "npm:2.0.0-alpha.20"
-  checksum: 10/326449136b409354c710b96b77d7d1212708d75ccf50ea1f09731d3f8e4598784157aa6c12f4831cb65bb61458f34d90ca8a1658b8210b2844b0e39f526d6919
-  languageName: node
-  linkType: hard
-
 "@pkgjs/parseargs@npm:^0.11.0":
   version: 0.11.0
   resolution: "@pkgjs/parseargs@npm:0.11.0"
   checksum: 10/115e8ceeec6bc69dff2048b35c0ab4f8bbee12d8bb6c1f4af758604586d802b6e669dcb02dda61d078de42c2b4ddce41b3d9e726d7daa6b4b850f4adbf7333ff
-  languageName: node
-  linkType: hard
-
-"@rrweb/types@npm:2.0.0-alpha.20":
-  version: 2.0.0-alpha.20
-  resolution: "@rrweb/types@npm:2.0.0-alpha.20"
-  checksum: 10/8eb2fe29592da207420ff019f1ce316182e88a6e6876e16d185c5e9c97047cbe58708f1fe2e170cf04ae372152cba04230c826a2cbb84430b1f6bd09dc2e47d6
-  languageName: node
-  linkType: hard
-
-"@rrweb/types@npm:^2.0.0-alpha.20":
-  version: 2.1.7
-  resolution: "@rrweb/types@npm:2.1.7"
-  checksum: 10/c7867a04d4e5ca881a69a8e0ea6411ea9c74e94ac4f6a1c22ffd283269abed908dac678a83cd44a36a586762692864f9cc3758bac29ee2cbecbfb69c28ee3b7b
-  languageName: node
-  linkType: hard
-
-"@rrweb/utils@npm:^2.0.0-alpha.20":
-  version: 2.1.7
-  resolution: "@rrweb/utils@npm:2.1.7"
-  checksum: 10/889ede602d2efda6ab40fa3c7be14a4d35c9c42acabb02ebdbfba05466ab05b93da6f57ab4a5bf31ebd52f906ccb6b7f53e4ab54ac5068c510dd844ec0f0f2c6
   languageName: node
   linkType: hard
 
@@ -1916,13 +1884,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/css-font-loading-module@npm:0.0.7":
-  version: 0.0.7
-  resolution: "@types/css-font-loading-module@npm:0.0.7"
-  checksum: 10/f70b9098ee3b2e006f5f6d5cecc627dcc7b898f266bfc594e73a8720636f1a3bc5f8c38fa0e8f7e5b7878038b46fd70da0c797c3288e072af984097210f4c056
-  languageName: node
-  linkType: hard
-
 "@types/http-cache-semantics@npm:^4.0.2":
   version: 4.0.4
   resolution: "@types/http-cache-semantics@npm:4.0.4"
@@ -1945,13 +1906,6 @@ __metadata:
   dependencies:
     "@types/node": "npm:*"
   checksum: 10/5ee966ea7bd6b2802f31ad4281c92c4c0b6dfa593c378a2582c58541fa113bec3d70eb0696b34ad95e8e6861a884cba6c3e351285816693ed176222f840a8c08
-  languageName: node
-  linkType: hard
-
-"@xstate/fsm@npm:^1.4.0":
-  version: 1.6.5
-  resolution: "@xstate/fsm@npm:1.6.5"
-  checksum: 10/deae1501169d41d5395ce1581d7b08bde17911b7dec1533eacd5bee17060d22273055d6d6bc7e8f32222a502e4dcf510cd29064a5c9c5fa5aa2ced0ad60b2512
   languageName: node
   linkType: hard
 
@@ -2560,13 +2514,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"base64-arraybuffer@npm:^1.0.1":
-  version: 1.0.2
-  resolution: "base64-arraybuffer@npm:1.0.2"
-  checksum: 10/15e6400d2d028bf18be4ed97702b11418f8f8779fb8c743251c863b726638d52f69571d4cc1843224da7838abef0949c670bde46936663c45ad078e89fee5c62
-  languageName: node
-  linkType: hard
-
 "base64-js@npm:^1.0.2, base64-js@npm:^1.3.1":
   version: 1.5.1
   resolution: "base64-js@npm:1.5.1"
@@ -3050,7 +2997,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "byronrode@workspace:."
   dependencies:
-    "@openpanel/web": "npm:1.4.1"
+    "@openpanel/sdk": "npm:1.3.1"
     "@tailwindcss/typography": "npm:^0.5.10"
     "@tryghost/release-utils": "npm:^0.8.1"
     autoprefixer: "npm:^10.4.7"
@@ -7558,13 +7505,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"mitt@npm:^3.0.0":
-  version: 3.0.1
-  resolution: "mitt@npm:3.0.1"
-  checksum: 10/287c70d8e73ffc25624261a4989c783768aed95ecb60900f051d180cf83e311e3e59865bfd6e9d029cdb149dc20ba2f128a805e9429c5c4ce33b1416c65bbd14
-  languageName: node
-  linkType: hard
-
 "mixin-deep@npm:^1.2.0":
   version: 1.3.2
   resolution: "mixin-deep@npm:1.3.2"
@@ -7722,15 +7662,6 @@ __metadata:
   dependencies:
     node-gyp: "npm:latest"
   checksum: 10/bba1efee2475afb0cce154300b554863fb4bb0a683a28f5d0fa7390794b3b4381356aabeab6472c70651d9c8a2830e7595963f3ec0aa2008e5c4d83dbeb820fa
-  languageName: node
-  linkType: hard
-
-"nanoid@npm:^3.3.19":
-  version: 3.3.20
-  resolution: "nanoid@npm:3.3.20"
-  bin:
-    nanoid: bin/nanoid.cjs
-  checksum: 10/b19641487fc25325189175226a4b9fcc8da39989c6a39fd35921802158d6b1725d59d8454a4e30643d2bb4837382cac11ee129417282678a67f8394b31c228d9
   languageName: node
   linkType: hard
 
@@ -8396,13 +8327,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"picocolors@npm:^1.1.1":
-  version: 1.1.1
-  resolution: "picocolors@npm:1.1.1"
-  checksum: 10/e1cf46bf84886c79055fdfa9dcb3e4711ad259949e3565154b004b260cd356c5d54b31a1437ce9782624bf766272fe6b0154f5f0c744fb7af5d454d2b60db045
-  languageName: node
-  linkType: hard
-
 "picomatch@npm:^2.0.4, picomatch@npm:^2.2.1, picomatch@npm:^2.3.1":
   version: 2.3.1
   resolution: "picomatch@npm:2.3.1"
@@ -8990,17 +8914,6 @@ __metadata:
     picocolors: "npm:^1.0.0"
     source-map-js: "npm:^1.0.2"
   checksum: 10/e22a4594c255f26117f38419fb494d7ecab0f596cd409f7aadc8a6173abf180ed7ea970cd13fd366ab12b5840be901d2a09b25197700c2ebcb5a8077326bf519
-  languageName: node
-  linkType: hard
-
-"postcss@npm:^8.4.38":
-  version: 8.5.29
-  resolution: "postcss@npm:8.5.29"
-  dependencies:
-    nanoid: "npm:^3.3.19"
-    picocolors: "npm:^1.1.1"
-    source-map-js: "npm:^1.2.2"
-  checksum: 10/801c352ab8aa59aaea145c11e59f1f134db834be0398e15e16969a1ca19dabbd2aa709cdca285d796a8462cee1a1a2626d435b4b63d1a1010100934e9fac3a1b
   languageName: node
   linkType: hard
 
@@ -9708,40 +9621,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"rrdom@npm:^2.0.0-alpha.20":
-  version: 2.1.7
-  resolution: "rrdom@npm:2.1.7"
-  dependencies:
-    rrweb-snapshot: "npm:^2.1.7"
-  checksum: 10/0d090aa1cd3f9839d646dc0a4ec9baa2aff71cb7681643c2f9238b0fe9e4614b5aa896765100e357f0ae49438d49fc6fac1336ccf40dd19ac02e6791e280f817
-  languageName: node
-  linkType: hard
-
-"rrweb-snapshot@npm:^2.0.0-alpha.20, rrweb-snapshot@npm:^2.1.7":
-  version: 2.1.7
-  resolution: "rrweb-snapshot@npm:2.1.7"
-  dependencies:
-    postcss: "npm:^8.4.38"
-  checksum: 10/1a2d40a9ecfa8ce566daf52aef0b46dbedd63768f54ccb6addf10c226276d30348deea12a501bbd7a4316d64d58ec0c6736229737e2a01812259bd08f6d45de1
-  languageName: node
-  linkType: hard
-
-"rrweb@npm:2.0.0-alpha.20":
-  version: 2.0.0-alpha.20
-  resolution: "rrweb@npm:2.0.0-alpha.20"
-  dependencies:
-    "@rrweb/types": "npm:^2.0.0-alpha.20"
-    "@rrweb/utils": "npm:^2.0.0-alpha.20"
-    "@types/css-font-loading-module": "npm:0.0.7"
-    "@xstate/fsm": "npm:^1.4.0"
-    base64-arraybuffer: "npm:^1.0.1"
-    mitt: "npm:^3.0.0"
-    rrdom: "npm:^2.0.0-alpha.20"
-    rrweb-snapshot: "npm:^2.0.0-alpha.20"
-  checksum: 10/edb4cc003846ef877b1b24fd0d8541ec5aa8d3b2ce8f2dd224ccee9f2c02d2bd2cca074e230e175de20760c3a2bf616a94a37921c220f441f71b237a399e6d3b
-  languageName: node
-  linkType: hard
-
 "run-async@npm:^2.4.0":
   version: 2.4.1
   resolution: "run-async@npm:2.4.1"
@@ -10102,13 +9981,6 @@ __metadata:
   version: 1.0.2
   resolution: "source-map-js@npm:1.0.2"
   checksum: 10/38e2d2dd18d2e331522001fc51b54127ef4a5d473f53b1349c5cca2123562400e0986648b52e9407e348eaaed53bce49248b6e2641e6d793ca57cb2c360d6d51
-  languageName: node
-  linkType: hard
-
-"source-map-js@npm:^1.2.2":
-  version: 1.2.2
-  resolution: "source-map-js@npm:1.2.2"
-  checksum: 10/4807c894bb6280c8b84886159b96080e3996f42c6e8015e647881edfd4f955f6024ceebb8bb40d33ce8b106e24b2e29c133575e1c60c01c8aae57a05fdf17761
   languageName: node
   linkType: hard
 

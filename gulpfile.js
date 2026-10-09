@@ -60,11 +60,17 @@ function hbs(done) {
   css(done);
 }
 
+function sourceRevision() {
+  const {execFileSync} = require('node:child_process');
+  const {resolveBuildReference} = require('./scripts/analytics-build.cjs');
+  const head = execFileSync('git', ['rev-parse', 'HEAD'], {encoding: 'utf8'}).trim();
+  const dirty = execFileSync('git', ['status', '--porcelain', '--', '.', ':(exclude)assets/built'], {encoding: 'utf8'}).trim();
+  return resolveBuildReference(head, Boolean(dirty), process.env.IGNIS_SOURCE_SHA);
+}
+
 function js(done) {
   const fs = require('node:fs');
-  const {execFileSync} = require('node:child_process');
-  const sha = process.env.IGNIS_SOURCE_SHA || execFileSync('git', ['rev-parse', 'HEAD'], {encoding: 'utf8'}).trim();
-  if (!/^[a-f0-9]{40}$/i.test(sha)) throw new Error('Exact source SHA required for analytics build metadata');
+  const sha = sourceRevision();
   fs.writeFileSync('assets/js/lib/analytics-build.js', `module.exports = ${JSON.stringify(sha)};\n`);
 
   const browserified = browserify({
@@ -92,6 +98,7 @@ function js(done) {
 }
 
 function zipper(done) {
+  if (!sourceRevision()) throw new Error('Commit source changes before release packaging; dirty builds disable analytics');
   const targetDir = 'dist/';
   const themeName = require('./package.json').name;
   const filename = themeName + '.zip';

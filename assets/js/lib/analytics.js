@@ -1,4 +1,4 @@
-const {OpenPanel} = require('@openpanel/web');
+const {OpenPanel} = require('@openpanel/sdk');
 
 function createAnalytics(config, hostname, factory = options => new OpenPanel(options)) {
   if (!config || config.environment !== 'production' || !/^(www\.)?byronrode\.(com|co\.za)$/.test(hostname) || !config.clientId || !/^[a-f0-9]{40}$/i.test(config.buildId || '')) return null;

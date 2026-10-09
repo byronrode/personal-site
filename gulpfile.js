@@ -61,10 +61,22 @@ function hbs(done) {
 }
 
 function js(done) {
+  const fs = require('node:fs');
+  const {execFileSync} = require('node:child_process');
+  const sha = process.env.IGNIS_SOURCE_SHA || execFileSync('git', ['rev-parse', 'HEAD'], {encoding: 'utf8'}).trim();
+  if (!/^[a-f0-9]{40}$/i.test(sha)) throw new Error('Exact source SHA required for analytics build metadata');
+  fs.writeFileSync('assets/js/lib/analytics-build.js', `module.exports = ${JSON.stringify(sha)};\n`);
 
   const browserified = browserify({
     entries: ['./assets/js/main.js'],
-    debug: false
+    debug: false,
+    packageFilter: pkg => {
+      // Browserify does not resolve conditional exports; use the SDK's official CommonJS entry.
+      if (pkg.name === '@openpanel/web' || pkg.name === '@openpanel/sdk') {
+        pkg.main = pkg.exports['.'].require;
+      }
+      return pkg;
+    }
   });
 
   pump([
